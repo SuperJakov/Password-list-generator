@@ -41,7 +41,7 @@ async function makePasswordList() {
       // Loop until the counter reaches the limit
       while (i <= numberCount) {
         // Pad the number with leading zeros to make it 9 digits long
-        let password = i.toString().padStart(9, "0");
+        let password = i.toString().padStart(numberCount.length, "0");
         // Append the password to the buffer
         buffer += localPrefix + password + "\n";
         // Increment the counter
