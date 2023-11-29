@@ -4,6 +4,25 @@ const fs = require("fs/promises");
 // File name
 const fileName = "password_list.txt";
 
+// prefix
+// leave empty for no prefix. Example no prefix:
+// const prefix = "";
+const prefix = "prefix";
+
+// number count
+// count of numbers after prefix (or no prefix)
+// bigger = more ssd space
+// bigger = longer
+const numberCount = 99999;
+
+// cpu, bigger = better cpu
+// 2500 = average pc
+// 1000 = bad pc
+// 5000 = good pc
+// 10000 extreme pc NOT RECOMMENDED!
+
+const cpu = 2500;
+
 // Initialize the counter
 let i = 0;
 
@@ -17,16 +36,18 @@ async function makePasswordList() {
     if (fileHandle) {
       // Initialize a buffer to store passwords
       let buffer = "";
+      const localPrefix = prefix;
+      const localCpu = cpu;
       // Loop until the counter reaches the limit
-      while (i <= 999999999) {
+      while (i <= numberCount) {
         // Pad the number with leading zeros to make it 9 digits long
         let password = i.toString().padStart(9, "0");
         // Append the password to the buffer
-        buffer += "INNBOX" + password + "\n";
+        buffer += localPrefix + password + "\n";
         // Increment the counter
         i++;
         // Check if the buffer size is 5000 or more, larger = better cpu
-        if (buffer.length >= 5000) {
+        if (buffer.length >= localCpu) {
           // Write the buffer to the file
           await fileHandle.write(buffer);
           // Clear the buffer
