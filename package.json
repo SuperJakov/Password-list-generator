@@ -1,0 +1,11 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "password_list_generator.js",
+  "scripts": {
+    "start": "node password_list_generator.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
