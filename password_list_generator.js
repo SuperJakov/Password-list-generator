@@ -8,24 +8,31 @@ const fileName = "password_list.txt";
 // leave empty for no prefix. Example no prefix:
 // const prefix = "";
 const prefix = "prefix";
-
+console.log(`Initialized prefix: ${prefix}`);
 // number count
 // count of numbers after prefix (or no prefix)
 // bigger = more ssd space
 // bigger = longer
 const numberCount = 99999;
+console.log(`Initialized numberCount: ${numberCount}`);
+// bigger = better cpu
+// 2500 = bad pc
+// 5000 = average pc
+// 15000 = good pc
+// 30000 extreme pc NOT RECOMMENDED!
+// bigger = faster
 
-// cpu, bigger = better cpu
-// 2500 = average pc
-// 1000 = bad pc
-// 5000 = good pc
-// 10000 extreme pc NOT RECOMMENDED!
-
-const cpu = 2500;
-
+const cpu = 25000;
+console.log(`Initialized cpu: ${cpu}`);
 // Initialize the counter
 let i = 0;
-
+// Set a file to blank
+fs.writeFile(fileName, "", (err) => {
+  if (err) console.error(err);
+  else {
+    console.log("File emptied successfully");
+  }
+});
 // Define an async function
 async function makePasswordList() {
   // Try to open the file in append mode
@@ -41,7 +48,9 @@ async function makePasswordList() {
       // Loop until the counter reaches the limit
       while (i <= numberCount) {
         // Pad the number with leading zeros to make it 9 digits long
-        let password = i.toString().padStart(numberCount.length, "0");
+        let password = i
+          .toString()
+          .padStart(numberCount.toString().length, "0");
         // Append the password to the buffer
         buffer += localPrefix + password + "\n";
         // Increment the counter
