@@ -1,6 +1,6 @@
 # Password list generator
 
-## Very fast
+## Ultra fast
 
 ## Changes in code
 

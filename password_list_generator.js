@@ -1,13 +1,13 @@
-// Import the fs promises API
 const fs = require("fs/promises");
 
 // File name
 const fileName = "password_list.txt";
-
+// Make file blank
+fs.writeFile(fileName, "");
 // prefix
 // leave empty for no prefix. Example no prefix:
 // const prefix = "";
-const prefix = "prefix";
+const prefix = "INNBOX";
 console.log(`Initialized prefix: ${prefix}`);
 // number count
 // count of numbers after prefix (or no prefix)
@@ -22,17 +22,9 @@ console.log(`Initialized numberCount: ${numberCount}`);
 // 30000 extreme pc NOT RECOMMENDED!
 // bigger = faster
 
-const cpu = 25000;
+const cpu = 30000;
 console.log(`Initialized cpu: ${cpu}`);
-// Initialize the counter
-let i = 0;
-// Set a file to blank
-fs.writeFile(fileName, "", (err) => {
-  if (err) console.error(err);
-  else {
-    console.log("File emptied successfully");
-  }
-});
+
 // Define an async function
 async function makePasswordList() {
   // Try to open the file in append mode
@@ -43,20 +35,16 @@ async function makePasswordList() {
     if (fileHandle) {
       // Initialize a buffer to store passwords
       let buffer = "";
-      const localPrefix = prefix;
-      const localCpu = cpu;
+      // Get the length of the number count
+      const numberLength = numberCount.toString().length;
       // Loop until the counter reaches the limit
-      while (i <= numberCount) {
+      for (let i = 0; i <= numberCount; i++) {
         // Pad the number with leading zeros to make it 9 digits long
-        let password = i
-          .toString()
-          .padStart(numberCount.toString().length, "0");
+        let password = i.toString().padStart(numberLength, "0");
         // Append the password to the buffer
-        buffer += localPrefix + password + "\n";
-        // Increment the counter
-        i++;
+        buffer += prefix + password + "\n";
         // Check if the buffer size is 5000 or more, larger = better cpu
-        if (buffer.length >= localCpu) {
+        if (buffer.length >= cpu) {
           // Write the buffer to the file
           await fileHandle.write(buffer);
           // Clear the buffer
