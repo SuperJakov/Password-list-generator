@@ -2,9 +2,7 @@
 
 ## Ultra fast
 
-## Changes in code
-
-### Located at top of script
+## Changes in code are located at top of script
 
 ### Prefix
 
