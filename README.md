@@ -2,17 +2,15 @@
 
 ## Ultra fast
 
-## Changes in code
-
 ### Located at top of script
 
-### Prefix
+### wordsArray
 
-Prefix is a string before the numbers
+wordsArray is a list of strings before and after the numbers
 
 Example:
 
-```powershell
+```
 prefix00001
 
 prefix00002
@@ -20,23 +18,29 @@ prefix00002
 ...
 
 prefix99999
+
+00000prefix
+
+...
+
+999999prefix
 ```
 
-### Number count
+### Numbers
 
-#### Usually recommended for all digits to be 9
+### Usually recommended for all digits to be 9
 
-Defines how many numbers are there after prefix
+Defines how many numbers are there after and before every word in wordsArray
 
-example:
+Example:
 
 ```javascript
-const numberCount = 999
+const numbers = 999
 ```
 
 Output:
 
-```powershell
+```cmd
 prefix001
 
 ...
@@ -50,12 +54,18 @@ prefix999
 
 ## Run script
 
-```javascript
-npm start
+### One-time install
+
+To install code that we use run:
+
+```cmd
+npm update
 ```
 
-or
+### Run password list generator
 
-```powershell
-node password_list_generator.js
+For 1st time running you have to [install](#one-time-install)
+
+```cmd
+npm start
 ```
