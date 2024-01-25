@@ -2,6 +2,8 @@
 
 ## Ultra fast
 
+## Changes in code
+
 ### Located at top of script
 
 ### wordsArray
