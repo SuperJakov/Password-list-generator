@@ -15,7 +15,7 @@ function generatePasswordList(words, outputPath, numbers, numbersLength) {
   const totalIterations = words.length * numbers * 2;
 
   // Create a new progress bar
-  const bar = new progress(":bar :percent", {
+  const bar = new progress(":bar :percent (:current/:total)", {
     total: totalIterations,
   });
 
